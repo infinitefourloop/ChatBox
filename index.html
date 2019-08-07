@@ -15,8 +15,8 @@
       <h1>ChatBox</h1>
 
 <!-- Sign up form -->
-      <h2>Sign Up</h2>
       <form class="signupForm" id="sign-up">
+        <h2>Sign Up</h2>
         <input class="form-control mt-3" type="email" name="credentials[email]" placeholder="Email@example.com" required>
         <input class="form-control my-3" type="password" name="credentials[password]" placeholder="New Password" required>
         <input class="form-control mb-3" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
@@ -24,8 +24,8 @@
       </form>
 
 <!-- Sign in form -->
-      <h2>Sign In</h2>
       <form class="col-6 signinForm" id="sign-in">
+        <h2>Sign In</h2>
         <div class="row align-items-center">
           <label class="mx-1 px-1" for="exampleDropdownFormEmail">Email address</label>
           <input class="form-control col px-6 mr-2" type="email" name="credentials[email]" required>
@@ -34,21 +34,26 @@
           <button class="btn btn-success mx-3 px-3">Sign in</button>
         </div>
       </form>
-      <button class="btn btn-primary px-5 my-2 guest hide">Test Account</button>
+
+<!-- e@e -->
+      <button id="guest" class="btn btn-primary px-5 my-2 guest hide">Test Account</button>
 
 <!-- Change password form -->
-      <h2>Change Password</h2>
       <form id="change-password" class="hide">
+        <h2>Change Password</h2>
         <input type="password" name="passwords[old]" placeholder="Old Password" required>
         <input type="password" name="passwords[new]" placeholder="New Password" required>
         <button class="button btn btn-success">Change Password</button>
       </form>
 
 <!-- Sign out form -->
-      <h2>Sign Out</h2>
       <form id="sign-out" class="hide">
+        <h2>Sign Out</h2>
         <button class="button btn btn-success">Sign Out</button>
       </form>
+
+<!-- User message -->
+      <div id="userMessage"></div>
 
 <!-- Chatbox -->
       <div id="chatbox"></div>
