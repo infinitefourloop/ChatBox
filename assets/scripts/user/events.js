@@ -42,6 +42,20 @@ const onGuest = event => {
     .catch(ui.signInFailure)
 }
 
+const onGuest2 = event => {
+  event.preventDefault()
+  const guestInfo = {
+    'credentials': {
+      'email': 'b@b',
+      'password': 'b'
+    }
+  }
+  api.signIn(guestInfo)
+    .then(ui.signInSuccess)
+    .then(messageEvents.onIndexMessages)
+    .catch(ui.signInFailure)
+}
+
 const onChangePassword = event => {
   event.preventDefault()
   const formData = getFormFields(event.target)
@@ -73,6 +87,7 @@ const addHandlers = () => {
   $('html').on('submit', '#sign-in', onSignIn)
   $('html').on('submit', '#sign-up', onSignUp)
   $('html').on('click', '#guest', onGuest)
+  $('html').on('click', '#guest2', onGuest2)
   $('html').on('submit', '#change-password', onChangePassword)
   $('html').on('click', '#sign-out', onSignOut)
   $('html').on('click', '#account', onAccountClick)
