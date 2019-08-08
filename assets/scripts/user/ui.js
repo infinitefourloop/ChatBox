@@ -2,14 +2,20 @@
 
 const store = require('../store')
 const api = require('./api')
+const showChatRoom = require('../templates/chat-room.handlebars')
+const showSigninHeader = require('../templates/signin-header.handlebars')
+const showAuth = require('../templates/auth.handlebars')
+const showSignoutHeader = require('../templates/signout-header.handlebars')
+// const showUserMessage = require('../templates/user-message.handlebars')
+// const showAccount = require('.//templates/account.handlebars')
 
 const successMessage = message => {
-  $('#message').text(message)
+  $('#userMessage').text(message)
   $('form').trigger('reset')
 }
 
 const failureMessage = message => {
-  $('#message').text(message)
+  $('#userMessage').text(message)
   $('form').trigger('reset')
 }
 
@@ -27,13 +33,12 @@ const signUpFailure = () => {
 
 const signInSuccess = (responseData) => {
   store.user = responseData.user
+  const chatRoom = showChatRoom()
+  const signinHeader = showSigninHeader()
+  $('header').html(signinHeader)
   successMessage(`Welcome ${store.user.email}!`)
-  $('#sign-out').removeClass('hide')
-  $('#change-password-button').removeClass('hide')
-  $('#sign-up').addClass('hide')
-  $('#sign-in').addClass('hide')
-  $('#guest').addClass('hide')
   $('form').trigger('reset')
+  $('main').html(chatRoom)
 }
 
 const signInFailure = () => {
@@ -50,10 +55,10 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = () => {
   successMessage('Successfully signed out.')
-  $('#sign-out').addClass('hide')
-  $('#sign-up').removeClass('hide')
-  $('#sign-in').removeClass('hide')
-  $('#guest').removeClass('hide')
+  const auth = showAuth()
+  const signoutHeader = showSignoutHeader()
+  $('main').html(auth)
+  $('header').html(signoutHeader)
 }
 
 const signOutFailure = () => {

@@ -4,6 +4,10 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
+const showAccount = require('../templates/account.handlebars')
+const showAccountHeader = require('../templates/account-header.handlebars')
+const showChatRoom = require('../templates/chat-room.handlebars')
+const showSigninHeader = require('../templates/signin-header.handlebars')
 
 const onSignUp = event => {
   event.preventDefault()
@@ -52,12 +56,29 @@ const onSignOut = () => {
     .catch(ui.signOutFailure)
 }
 
+const onAccountClick = event => {
+  event.preventDefault()
+  const accountPage = showAccount()
+  $('main').html(accountPage)
+  $('header').html(showAccountHeader)
+}
+
+const onHomeClick = event => {
+  event.preventDefault()
+  const chatRoom = showChatRoom()
+  const homeHeader = showSigninHeader()
+  $('main').html(chatRoom)
+  $('header').html(homeHeader)
+}
+
 const addHandlers = () => {
   $('html').on('submit', '#sign-in', onSignIn)
   $('html').on('submit', '#sign-up', onSignUp)
   $('html').on('click', '#guest', onGuest)
   $('html').on('submit', '#change-password', onChangePassword)
   $('html').on('click', '#sign-out', onSignOut)
+  $('html').on('click', '#account', onAccountClick)
+  $('html').on('click', '#home', onHomeClick)
 }
 
 module.exports = {
