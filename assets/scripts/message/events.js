@@ -15,11 +15,18 @@ const onSend = function (event) {
     .catch(ui.createMessageFailure)
 }
 
+const onIndexMessages = () => {
+  api.indexMessages()
+    .then(ui.indexMessagesSuccess)
+    .catch(ui.indexMessagesFailure)
+}
+
 const addHandlers = () => {
   $('html').on('submit', '#messageForm', onSend)
   socket.on('chat message', ui.postMessage)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onIndexMessages
 }
