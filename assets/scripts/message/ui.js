@@ -4,12 +4,16 @@ const postMessage = function (msg) {
   $('#messages').append($('<li>').text(msg))
 }
 
-const createMessageSucess = () => {
+const createMessageSuccess = () => {
   $('#m').val('')
   return false
 }
 
+const createMessageFailure = () => {
+}
+
 module.exports = {
   postMessage,
-  createMessageSucess
+  createMessageSuccess,
+  createMessageFailure
 }

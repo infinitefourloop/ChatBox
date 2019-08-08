@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>ChatBox</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>ChatBox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- Do not add `link` tags-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <header class="container">
-        <div class="row justify-content-center">
-        <h1>Chatty McChatFace</h1>
-      </div>
+    <!-- Do not add `script` tags-->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+  <body>
+    <header class="container">
       <div class="row justify-content-center">
-          <div id="userMessage"></div>
+      <h1>Chatty McChatFace</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div id="userMessage"></div>
+    </div>
+    </header>
+
+    <main class="container">
+      <!-- Sign up form -->
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <form class="signupForm" id="sign-up">
+            <h2>Sign Up</h2>
+            <input class="form-control mt-3" type="email" name="credentials[email]" placeholder="Email@example.com" required>
+            <input class="form-control my-3" type="password" name="credentials[password]" placeholder="New Password" required>
+            <input class="form-control mb-3" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+            <button class="btn btn-success px-5 mb-5">Sign up</button>
+          </form>
         </div>
-      </header>
-      <main class="container">
+      </div>
 
+      <!-- Sign in form -->
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <form class="signinForm" id="sign-in">
+            <h2>Sign In</h2>
+              <input class="form-control mt-3" type="email" name="credentials[email]" placeholder="Email@example.com" required>
+              <input class="form-control my-3" type="password" name="credentials[password]" placeholder="Password" required>
+              <button class="btn btn-success px-5">Sign in</button>
+          </form>
+        </div>
+      </div>
 
-<!-- Sign up form -->
-<div class="row justify-content-center">
-  <div class="col-6">
-      <form class="signupForm" id="sign-up">
-        <h2>Sign Up</h2>
-        <input class="form-control mt-3" type="email" name="credentials[email]" placeholder="Email@example.com" required>
-        <input class="form-control my-3" type="password" name="credentials[password]" placeholder="New Password" required>
-        <input class="form-control mb-3" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
-        <button class="btn btn-success px-5 mb-5">Sign up</button>
-      </form>
-    </div>
-</div>
-<!-- Sign in form -->
-<div class="row justify-content-center">
-  <div class="col-6">
-      <form class="signinForm" id="sign-in">
-        <h2>Sign In</h2>
-          <input class="form-control mt-3" type="email" name="credentials[email]" placeholder="Email@example.com" required>
-          <input class="form-control my-3" type="password" name="credentials[password]" placeholder="Password" required>
-          <button class="btn btn-success px-5">Sign in</button>
-      </form>
-    </div>
-</div>
-<!-- e@e -->
-<div class="row justify-content-center">
-  <div class="col-6">
-      <button id="guest" class="btn btn-primary px-5 my-2 guest">Quick SignIn</button>
-    </div>
-  </div>
-
+      <!-- e@e -->
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <button id="guest" class="btn btn-primary px-5 my-2 guest">Quick SignIn</button>
+        </div>
+      </div>
     </main>
-    </body>
-    <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  </body>
 </html>

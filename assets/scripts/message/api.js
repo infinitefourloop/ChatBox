@@ -16,14 +16,14 @@ const indexMessages = formData => {
 const createMessage = msg => {
   return $.ajax({
     url: config.apiUrl + '/messages',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data: {
       message: {
         text: msg
       }
-    },
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
     }
   })
 }

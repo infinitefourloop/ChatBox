@@ -7,11 +7,12 @@ const ui = require('./ui')
 
 const onSend = function (event) {
   event.preventDefault() // prevents page reloading
+
   const msg = $('#m').val()
   socket.emit('chat message', msg)
   api.createMessage(msg)
-    .then(ui.createMessageSucess)
-    .catch(console.log)
+    .then(ui.createMessageSuccess)
+    .catch(ui.createMessageFailure)
 }
 
 const addHandlers = () => {
