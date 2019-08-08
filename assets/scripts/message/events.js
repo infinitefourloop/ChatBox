@@ -9,8 +9,10 @@ const onSend = function (event) {
   event.preventDefault() // prevents page reloading
 
   const msg = $('#m').val()
-  socket.emit('chat message', msg)
   api.createMessage(msg)
+    .then((response) => {
+      socket.emit('chat message', response.message)
+    })
     .then(ui.createMessageSuccess)
     .catch(ui.createMessageFailure)
 }

@@ -1,8 +1,10 @@
 'use strict'
 const showMessagesTemplate = require('../templates/messages-listing.handlebars')
+const postMessageTemplate = require('../templates/message-post.handlebars')
 
-const postMessage = function (msg) {
-  $('#messages').append($('<li>').text(msg))
+const postMessage = function (message) {
+  const postMessageHtml = postMessageTemplate({ message: message })
+  $('#messages').append(postMessageHtml)
 }
 
 const indexMessagesSuccess = (data) => {
@@ -14,7 +16,7 @@ const indexMessagesFailure = () => {
 }
 
 const createMessageSuccess = () => {
-  $('#m').val('')
+  $('form').trigger('reset')
   return false
 }
 
