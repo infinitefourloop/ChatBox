@@ -23,9 +23,19 @@ const onIndexMessages = () => {
     .catch(ui.indexMessagesFailure)
 }
 
+const onDeleteMessage = (event) => {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  api.deleteMessage(id)
+    .then(api.indexMessages)
+    .then(ui.indexMessagesSuccess)
+    .catch(ui.deleteMessageFailure)
+}
+
 const addHandlers = () => {
   $('html').on('submit', '#messageForm', onSend)
   socket.on('chat message', ui.postMessage)
+  $('html').on('click', '.delete-message', onDeleteMessage)
 }
 
 module.exports = {

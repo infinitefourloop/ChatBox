@@ -23,10 +23,20 @@ const createMessageSuccess = () => {
 const createMessageFailure = () => {
 }
 
+const deleteMessageSuccess = () => {
+
+}
+
+const deleteMessageFailure = () => {
+
+}
+
 module.exports = {
   postMessage,
   indexMessagesSuccess,
   indexMessagesFailure,
   createMessageSuccess,
-  createMessageFailure
+  createMessageFailure,
+  deleteMessageSuccess,
+  deleteMessageFailure
 }
