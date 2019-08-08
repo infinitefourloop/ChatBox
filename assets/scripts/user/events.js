@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const messageEvents = require('../message/events')
 const store = require('../store')
 const showAccount = require('../templates/account.handlebars')
 const showChatRoom = require('../templates/chat-room.handlebars')
@@ -23,6 +24,7 @@ const onSignIn = event => {
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(ui.signInSuccess)
+    .then(messageEvents.onIndexMessages)
     .catch(ui.signInFailure)
 }
 
@@ -36,6 +38,7 @@ const onGuest = event => {
   }
   api.signIn(guestInfo)
     .then(ui.signInSuccess)
+    .then(messageEvents.onIndexMessages)
     .catch(ui.signInFailure)
 }
 
