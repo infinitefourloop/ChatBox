@@ -12,14 +12,20 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <header>
+      <header class="container">
+        <div class="row justify-content-center">
         <h1>Chatty McChatFace</h1>
+      </div>
+      <div class="row justify-content-center">
           <div id="userMessage"></div>
+        </div>
       </header>
-      <main>
+      <main class="container">
 
 
 <!-- Sign up form -->
+<div class="row justify-content-center">
+  <div class="col-6">
       <form class="signupForm" id="sign-up">
         <h2>Sign Up</h2>
         <input class="form-control mt-3" type="email" name="credentials[email]" placeholder="Email@example.com" required>
@@ -27,30 +33,28 @@
         <input class="form-control mb-3" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
         <button class="btn btn-success px-5 mb-5">Sign up</button>
       </form>
-
+    </div>
+</div>
 <!-- Sign in form -->
-      <form class="col-6 signinForm" id="sign-in">
+<div class="row justify-content-center">
+  <div class="col-6">
+      <form class="signinForm" id="sign-in">
         <h2>Sign In</h2>
-        <div class="row align-items-center">
           <input class="form-control mt-3" type="email" name="credentials[email]" placeholder="Email@example.com" required>
           <input class="form-control my-3" type="password" name="credentials[password]" placeholder="Password" required>
           <button class="btn btn-success px-5">Sign in</button>
-        </div>
       </form>
-
+    </div>
+</div>
 <!-- e@e -->
+<div class="row justify-content-center">
+  <div class="col-6">
       <button id="guest" class="btn btn-primary px-5 my-2 guest">Quick SignIn</button>
+    </div>
+  </div>
 
-
-<!-- Chatbox -->
-      <div id="chatbox">
-        <ul id="messages"></ul>
-        <form id="messageForm" action="">
-          <input id="m" autocomplete="off" /><button>Send</button>
-        </form>
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-      </div>
     </main>
     </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </html>
