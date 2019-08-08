@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const api = require('./api')
+const messageEvents = require('../message/events')
 const showChatRoom = require('../templates/chat-room.handlebars')
 const showSigninHeader = require('../templates/signin-header.handlebars')
 const showAuth = require('../templates/auth.handlebars')
@@ -25,6 +26,7 @@ const signUpSuccess = responseData => {
   $('#guest').addClass('hide')
   api.signIn(store.save)
     .then(signInSuccess)
+    .then(messageEvents.onIndexMessages)
 }
 
 const signUpFailure = () => {

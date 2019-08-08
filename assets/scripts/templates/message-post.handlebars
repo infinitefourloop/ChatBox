@@ -1,4 +1,3 @@
-{{#each messages as |message| }}
 <li data-id="{{message._id}}" class="justify-content-center">
   {{message.text}}
 </li>
@@ -6,4 +5,3 @@
   <button class="col btn btn-warning update-grocery" type="button" data-toggle="modal" data-target="#updategroceryModal" data-id="{{grocery.id}}">Update</button>
   <button class="col btn btn-danger delete-grocery" data-id="{{grocery.id}}">Delete</button>
 </div>
-{{/each}}
