@@ -12,7 +12,12 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>ChatBox</h1>
+      <header>
+        <h1>Chatty McChatFace</h1>
+          <div id="userMessage"></div>
+      </header>
+      <main>
+
 
 <!-- Sign up form -->
       <form class="signupForm" id="sign-up">
@@ -36,22 +41,6 @@
 <!-- e@e -->
       <button id="guest" class="btn btn-primary px-5 my-2 guest">Quick SignIn</button>
 
-<!-- Change password form -->
-      <form id="change-password" class="hide">
-        <h2>Change Password</h2>
-        <input type="password" name="passwords[old]" placeholder="Old Password" required>
-        <input type="password" name="passwords[new]" placeholder="New Password" required>
-        <button class="button btn btn-success">Change Password</button>
-      </form>
-
-<!-- Sign out form -->
-      <form id="sign-out" class="hide">
-        <h2>Sign Out</h2>
-        <button class="button btn btn-success">Sign Out</button>
-      </form>
-
-<!-- User message -->
-      <div id="userMessage"></div>
 
 <!-- Chatbox -->
       <div id="chatbox">
@@ -62,5 +51,6 @@
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
       </div>
+    </main>
     </body>
 </html>
