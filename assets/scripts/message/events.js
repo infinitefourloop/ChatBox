@@ -4,6 +4,8 @@ const io = require('socket.io-client')
 const socket = io.connect('localhost:4741')
 const api = require('./api')
 const ui = require('./ui')
+const getFormFields = require('../../../lib/get-form-fields')
+const store = require('../store')
 
 const onSend = function (event) {
   event.preventDefault() // prevents page reloading
@@ -29,16 +31,37 @@ const onDeleteMessage = (event) => {
   api.deleteMessage(id)
     .then(api.indexMessages)
     .then((response) => {
-      socket.emit('delete message', response)
+      socket.emit('array message', response)
     })
     .catch(ui.deleteMessageFailure)
+}
+
+const onEditMessage = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  const id = store.currentMessageId
+  api.editMessage(formData, id)
+    .then(api.indexMessages)
+    .then((response) => {
+      socket.emit('array message', response)
+    })
+    .then(ui.updateMessageSuccess)
+    .catch(ui.updateMessageFailure)
+}
+
+const onGetMessageId = (event) => {
+  event.preventDefault()
+  store.currentMessageId = $(event.target).data('id')
 }
 
 const addHandlers = () => {
   $('html').on('submit', '#messageForm', onSend)
   socket.on('chat message', ui.postMessage)
   $('html').on('click', '.delete-message', onDeleteMessage)
-  socket.on('delete message', ui.indexMessagesSuccess)
+  socket.on('array message', ui.indexMessagesSuccess)
+  $('html').on('submit', '#update-message', onEditMessage)
+  $('html').on('click', '.update-message', onGetMessageId)
 }
 
 module.exports = {

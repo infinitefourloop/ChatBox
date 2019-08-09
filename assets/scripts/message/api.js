@@ -28,6 +28,17 @@ const createMessage = msg => {
   })
 }
 
+const editMessage = (formData, id) => {
+  return $.ajax({
+    url: config.apiUrl + `/messages/${id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+
 const deleteMessage = id => {
   return $.ajax({
     url: config.apiUrl + `/messages/${id}`,
@@ -41,5 +52,6 @@ const deleteMessage = id => {
 module.exports = {
   indexMessages,
   createMessage,
-  deleteMessage
+  deleteMessage,
+  editMessage
 }

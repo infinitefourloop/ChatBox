@@ -55,6 +55,36 @@
         </div>
       </div>
     </main>
+
+    <!-- Update Message Modal -->
+    <div class="modal fade" id="updateMessageModal" tabindex="-1" role="dialog" aria-labelledby="updateMessageModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateMessageModalLabel">Update Message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="update-message">
+              <div class="form-group row justify-content-center">
+                <label for="updateMessage" class="col-5 my-2 col-form-label">Message</label>
+                <input type="text" name="message[text]" class="form-control col col-5 my-2" id="updateMessage">
+              </div>
+              <div class="modal-footer row align-items-center">
+                <div class="update-grocery-message col">&nbsp</div>
+                <div class="update-grocery-model col" align="right">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success updatebutton">Update</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
   </body>
 </html>

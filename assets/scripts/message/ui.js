@@ -24,10 +24,16 @@ const createMessageFailure = () => {
 }
 
 const deleteMessageSuccess = () => {
-
 }
 
 const deleteMessageFailure = () => {
+}
+
+const updateMessageSuccess = () => {
+  $('#updateMessageModal').modal('toggle')
+}
+
+const updateMessageFailure = () => {
 
 }
 
@@ -38,5 +44,7 @@ module.exports = {
   createMessageSuccess,
   createMessageFailure,
   deleteMessageSuccess,
-  deleteMessageFailure
+  deleteMessageFailure,
+  updateMessageSuccess,
+  updateMessageFailure
 }
