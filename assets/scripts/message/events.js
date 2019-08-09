@@ -58,12 +58,12 @@ const onGetMessageId = (event) => {
 
 const addHandlers = () => {
   $('html').on('submit', '#messageForm', onSend)
-  socket.on('chat message', ui.postMessage)
   $('html').on('click', '.delete-message', onDeleteMessage)
-  socket.on('array message', ui.indexMessagesSuccess)
   $('html').on('submit', '#update-message', onEditMessage)
   $('html').on('click', '.update-message', onGetMessageId)
   $('html').on('click', '.update-message', ui.updateclear)
+  socket.on('chat message', ui.postMessage)
+  socket.on('array message', ui.indexMessagesSuccess)
 }
 
 module.exports = {

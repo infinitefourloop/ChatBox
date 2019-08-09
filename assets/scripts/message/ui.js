@@ -1,6 +1,8 @@
 'use strict'
+
 const showMessagesTemplate = require('../templates/messages-listing.handlebars')
 const postMessageTemplate = require('../templates/message-post.handlebars')
+const store = require('../store')
 
 const postMessage = function (message) {
   const postMessageHtml = postMessageTemplate({ message: message })
@@ -8,6 +10,7 @@ const postMessage = function (message) {
 }
 
 const indexMessagesSuccess = (data) => {
+  store.data = data
   const showMessagesHtml = showMessagesTemplate({ messages: data.messages })
   $('#messages').html(showMessagesHtml)
 }
@@ -53,6 +56,8 @@ const updateMessageFailure = () => {
 
 const updateclear = () => {
   $('#updateMessage').val('')
+  const message = store.data.messages.find(data => data._id === store.currentMessageId)
+  $('#updateMessage').val(message.text)
 }
 
 module.exports = {
