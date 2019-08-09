@@ -31,7 +31,7 @@ const createMessage = msg => {
 const editMessage = (formData, id) => {
   return $.ajax({
     url: config.apiUrl + `/messages/${id}`,
-    method: 'POST',
+    method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
