@@ -33,6 +33,7 @@ const onDeleteMessage = (event) => {
     .then((response) => {
       socket.emit('array message', response)
     })
+    .then(ui.deleteMessageSuccess)
     .catch(ui.deleteMessageFailure)
 }
 
@@ -62,6 +63,7 @@ const addHandlers = () => {
   socket.on('array message', ui.indexMessagesSuccess)
   $('html').on('submit', '#update-message', onEditMessage)
   $('html').on('click', '.update-message', onGetMessageId)
+  $('html').on('click', '.update-message', ui.updateclear)
 }
 
 module.exports = {
