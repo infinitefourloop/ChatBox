@@ -1,5 +1,6 @@
 {{#each messages as |message| }}
 <li data-id="{{message._id}}" class="justify-content-center">
+  {{message.owner.username}}
   {{message.text}}
   <div class="row justify-content-center">
     <button data-target="#updateMessageModal" class="col btn btn-warning update-message" type="button" data-toggle="modal" data-id="{{message._id}}">Update</button>

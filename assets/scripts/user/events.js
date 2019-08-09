@@ -32,7 +32,7 @@ const onGuest = event => {
   event.preventDefault()
   const guestInfo = {
     'credentials': {
-      'email': 'e@e',
+      'email': 'el@el',
       'password': 'e'
     }
   }
@@ -46,7 +46,7 @@ const onGuest2 = event => {
   event.preventDefault()
   const guestInfo = {
     'credentials': {
-      'email': 'b@b',
+      'email': 'be@be',
       'password': 'b'
     }
   }
