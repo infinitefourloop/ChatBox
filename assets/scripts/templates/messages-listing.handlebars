@@ -1,9 +1,9 @@
 {{#each messages as |message| }}
 <li data-id="{{message._id}}" class="justify-content-center">
   {{message.text}}
+  <div class="row justify-content-center">
+    <button class="col btn btn-warning update-message" type="button" data-toggle="modal" data-id="{{message._id}}">Update</button>
+    <button class="col btn btn-danger delete-message" data-id="{{message._id}}">Delete</button>
+  </div>
 </li>
-<div class="row justify-content-center">
-  <button class="col btn btn-warning update-grocery" type="button" data-toggle="modal" data-target="#updategroceryModal" data-id="{{grocery.id}}">Update</button>
-  <button class="col btn btn-danger delete-grocery" data-id="{{grocery.id}}">Delete</button>
-</div>
 {{/each}}
