@@ -37,8 +37,10 @@ const signInSuccess = (responseData) => {
   store.user = responseData.user
   const chatRoom = showChatRoom()
   const signinHeader = showSigninHeader()
+  $('header').removeClass('container')
   $('header').html(signinHeader)
-  successMessage(`Welcome ${store.user.email}!`)
+  $('#userMessage').addClass('welcome-message')
+  successMessage(`Get ready to chat your face off ${store.user.email}!`)
   $('form').trigger('reset')
   $('main').html(chatRoom)
 }
@@ -60,6 +62,7 @@ const signOutSuccess = () => {
   const auth = showAuth()
   const signoutHeader = showSignoutHeader()
   $('main').html(auth)
+  $('header').addClass('container')
   $('header').html(signoutHeader)
 }
 

@@ -81,6 +81,7 @@ const onHomeClick = event => {
   event.preventDefault()
   const chatRoom = showChatRoom()
   $('main').html(chatRoom)
+  messageEvents.onIndexMessages()
 }
 
 const addHandlers = () => {
