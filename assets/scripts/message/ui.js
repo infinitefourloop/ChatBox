@@ -16,6 +16,7 @@ const indexMessagesFailure = () => {
 }
 
 const createMessageSuccess = () => {
+  $('#userMessage').text('')
   $('form').trigger('reset')
   return false
 }
@@ -24,17 +25,34 @@ const createMessageFailure = () => {
 }
 
 const deleteMessageSuccess = () => {
+  $('#userMessage').text('Deleted message successfully!')
+  $('#userMessage').removeClass('failure')
+  $('#userMessage').addClass('success')
 }
 
 const deleteMessageFailure = () => {
+  $('#userMessage').text('Failed to delete message. Please try again')
+  $('#userMessage').removeClass('success')
+  $('#userMessage').addClass('failure')
 }
 
 const updateMessageSuccess = () => {
   $('#updateMessageModal').modal('toggle')
+  $('#userMessage').text('Updated message successfully!')
+  $('#userMessage').removeClass('failure')
+  $('#userMessage').addClass('success')
+  $('form').trigger('reset')
 }
 
 const updateMessageFailure = () => {
+  $('.update-message-message').text('Failed to update message. Please try again!')
+  $('.update-message-message').removeClass('success')
+  $('.update-message-message').addClass('failure')
+  $('form').trigger('reset')
+}
 
+const updateclear = () => {
+  $('#updateMessage').val('')
 }
 
 module.exports = {
@@ -46,5 +64,6 @@ module.exports = {
   deleteMessageSuccess,
   deleteMessageFailure,
   updateMessageSuccess,
-  updateMessageFailure
+  updateMessageFailure,
+  updateclear
 }
