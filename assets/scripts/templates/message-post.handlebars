@@ -1,9 +1,9 @@
-<div data-id="{{message._id}}" class="justify-content-center">
-  {{message.owner.username}}:
-  <br>
-  {{message.text}}
-  <div class="row justify-content-center">
-    <button class="col btn btn-warning update-message" data-target="#updateMessageModal" type="button" data-toggle="modal" data-id="{{message._id}}">Update</button>
-    <button class="col btn btn-danger delete-message" data-id="{{message._id}}">Delete</button>
+<div data-id="{{message._id}}" class="row">
+  <div class="username col">{{message.owner.username}}</div>
+  <div class="w-100"></div>
+  <div class="col-2">
+    <button data-target="#updateMessageModal" class="col btn btn-warning update-message" type="button" data-toggle="modal" data-id="{{message._id}}"><i class="fas fa-edit"></i></button>
+    <button class="col-1 delete-message" data-id="{{message._id}}"><i class="far fa-times-circle"></i></button>
   </div>
+  <div class="chatMessage col-8">{{message.text}}</div>
 </div>
