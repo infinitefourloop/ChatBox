@@ -2,8 +2,8 @@
   <div class="username col">{{message.owner.username}}</div>
   <div class="w-100"></div>
   <div class="col-2">
-    <button data-target="#updateMessageModal" class="col btn btn-warning update-message" type="button" data-toggle="modal" data-id="{{message._id}}"><i class="fas fa-edit"></i></button>
-    <button class="col-1 delete-message" data-id="{{message._id}}"><i class="far fa-times-circle"></i></button>
+    <button data-target="#updateMessageModal" class="col-1 update-message" type="button" data-toggle="modal"><i class="fas fa-edit" data-id="{{message._id}}"></i></button>
+    <button class="col-1 delete-message"><i class="far fa-times-circle" data-id="{{message._id}}"></i></button>
   </div>
   <div class="chatMessage col-8">{{message.text}}</div>
 </div>

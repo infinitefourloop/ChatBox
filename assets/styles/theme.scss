@@ -1,20 +1,65 @@
-.username {
-  font-size: 20px;
-  font-weight: bold;
+body {
+  min-height: 100vh;
+  padding: 5rem 0 1rem;
+}
+
+#userMessage {
+  font-size: 1.25em;
+  height: 30px;
+  text-align: right;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
 }
 
 .chatMessage {
   font-size: 15px;
 }
 
+.container-fluid {
+  color: #ffffff;
+  font-size: 1.15em;
+  padding: 1em;
+  @extend .bg-dark;
+  @extend .fixed-top;
+}
+
 .failure {
   color: #F00;
+}
+
+.front_page {
+  display: inline-block;
+  vertical-align: top;
 }
 
 .hide {
   display: none;
 }
 
+.left_h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 1.25em;
+  margin-left: 25px;
+}
+
+.main {
+  justify-content: center;
+}
+
 .success {
   color: #080
+}
+
+.username {
+  font-size: 20px;
+  font-weight: bold;
 }
