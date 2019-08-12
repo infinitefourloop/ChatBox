@@ -39,6 +39,7 @@ const onDeleteMessage = (event) => {
 
 const onEditMessage = (event) => {
   event.preventDefault()
+
   const form = event.target
   const formData = getFormFields(form)
   const id = store.currentMessageId
@@ -53,6 +54,7 @@ const onEditMessage = (event) => {
 
 const onGetMessageId = (event) => {
   event.preventDefault()
+  console.log($(event.target).data('id'))
   store.currentMessageId = $(event.target).data('id')
 }
 
@@ -60,7 +62,7 @@ const addHandlers = () => {
   $('html').on('submit', '#messageForm', onSend)
   $('html').on('click', '.delete-message', onDeleteMessage)
   $('html').on('submit', '#update-message', onEditMessage)
-  $('html').on('click', '.update-message', onGetMessageId)
+  $('html').on('click', '.update-message-icon', onGetMessageId)
   $('html').on('click', '.update-message', ui.updateclear)
   socket.on('chat message', ui.postMessage)
   socket.on('array message', ui.indexMessagesSuccess)
