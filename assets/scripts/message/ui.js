@@ -17,6 +17,9 @@ const indexMessagesSuccess = (data) => {
 }
 
 const indexMessagesFailure = () => {
+  $('#userMessage').text('Unable to get all messages!')
+  $('#userMessage').removeClass('success')
+  $('#userMessage').addClass('failure')
 }
 
 const createMessageSuccess = () => {
@@ -26,6 +29,9 @@ const createMessageSuccess = () => {
 }
 
 const createMessageFailure = () => {
+  $('#userMessage').text('Unable to create message!')
+  $('#userMessage').removeClass('success')
+  $('#userMessage').addClass('failure')
 }
 
 const deleteMessageSuccess = () => {
