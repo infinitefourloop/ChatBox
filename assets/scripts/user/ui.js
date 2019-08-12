@@ -3,8 +3,11 @@
 const store = require('../store')
 const api = require('./api')
 const messageEvents = require('../message/events')
+const messagesUi = require('../message/ui')
 const showChatRoom = require('../templates/chat-room.handlebars')
 const showHomeTemplate = require('../templates/home.handlebars')
+const io = require('socket.io-client')
+let socket
 
 const successMessage = message => {
   $('#userMessage').text(message)
@@ -23,6 +26,11 @@ const failureMessage = message => {
 const signUpSuccess = responseData => {
   api.signIn(store.save)
     .then(signInSuccess)
+    .then(function () {
+      socket = io.connect('localhost:4741')
+      socket.on('chat message', messagesUi.postMessage)
+      socket.on('array message', messagesUi.indexMessagesSuccess)
+    })
     .then(messageEvents.onIndexMessages)
     .catch(signUpFailure)
 }
