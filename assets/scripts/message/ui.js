@@ -6,13 +6,19 @@ const store = require('../store')
 
 const postMessage = function (message) {
   store.data.messages.push(message)
-  const postMessageHtml = postMessageTemplate({ message: message })
+  const object = { message }
+  object.current_user_id = store.user._id
+  const postMessageHtml = postMessageTemplate(object)
   $('#messages').prepend(postMessageHtml)
 }
 
 const indexMessagesSuccess = (data) => {
   store.data = data
-  const showMessagesHtml = showMessagesTemplate({ messages: data.messages.reverse() })
+  const object = {messages: data.messages.reverse()}
+  object.messages.forEach((msg) => {
+    msg.current_user_id = store.user._id
+  })
+  const showMessagesHtml = showMessagesTemplate(object)
   $('#messages').html(showMessagesHtml)
 }
 
