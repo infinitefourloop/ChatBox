@@ -1,18 +1,7 @@
-<!-- <div data-id="{{message._id}}" class="row">
-  <div class="username col">{{message.owner.username}}</div>
-  <div class="w-100"></div>
-  <div class="col-2">
-    <button data-target="#updateMessageModal" class="col update-message" type="button" data-toggle="modal"><i class="fas fa-edit" data-id="{{message._id}}"></i></button>
-    <button class="col delete-message"><i class="far fa-times-circle" data-id="{{message._id}}"></i></button>
-  </div>
-  <div class="chatMessage col-8">{{message.text}}</div>
-</div> -->
-
-
 <div class="media message-hover p-3">
   <div class="user-box mr-2">{{limit message.owner.username 1}}</div>
   <div class="media-body">
-    <h5 class="mt-0">{{message.owner.username}}</h5> <span class="hover-icons"><i class="fas fa-edit" data-target="#updateMessageModal" data-toggle="modal" data-id="{{message._id}}"></i><i class="far fa-times-circle delete-message" data-id="{{message._id}}"></i></span>
+    <h5 class="mt-0">{{message.owner.username}}</h5> <span class="hover-icons"><i class="fas fa-edit update-message-icon" data-target="#updateMessageModal" data-toggle="modal" data-id="{{message._id}}"></i><i class="far fa-times-circle delete-message" data-id="{{message._id}}"></i></span>
     {{message.text}}
   </div>
 </div>
