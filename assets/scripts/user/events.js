@@ -3,8 +3,11 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const uiMessages = require('../message/ui')
 const messageEvents = require('../message/events')
 const store = require('../store')
+const io = require('socket.io-client')
+let socket
 
 const onSignUp = event => {
   event.preventDefault()
@@ -22,6 +25,11 @@ const onSignIn = event => {
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(ui.signInSuccess)
+    .then(function () {
+      socket = io.connect('https://young-springs-61213.herokuapp.com')
+      socket.on('chat message', uiMessages.postMessage)
+      socket.on('array message', uiMessages.indexMessagesSuccess)
+    })
     .then(messageEvents.onIndexMessages)
     .catch(ui.signInFailure)
 }
@@ -94,5 +102,6 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  socket
 }
