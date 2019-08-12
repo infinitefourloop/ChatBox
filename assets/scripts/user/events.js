@@ -5,8 +5,6 @@ const api = require('./api')
 const ui = require('./ui')
 const messageEvents = require('../message/events')
 const store = require('../store')
-const showAccount = require('../templates/account.handlebars')
-const showChatRoom = require('../templates/chat-room.handlebars')
 
 const onSignUp = event => {
   event.preventDefault()
@@ -71,17 +69,16 @@ const onSignOut = () => {
     .catch(ui.signOutFailure)
 }
 
-const onAccountClick = event => {
+const getEmail = event => {
   event.preventDefault()
-  const accountPage = showAccount()
-  $('main').html(accountPage)
+  $('form').trigger('reset')
+  $('#staticEmail').val(store.user.email)
 }
 
-const onHomeClick = event => {
-  event.preventDefault()
-  const chatRoom = showChatRoom()
-  $('main').html(chatRoom)
-  messageEvents.onIndexMessages()
+const clear = () => {
+  $('#userMessage').text('')
+  $('.password-message').text('')
+  $('.update-message-message').text('')
 }
 
 const addHandlers = () => {
@@ -89,10 +86,10 @@ const addHandlers = () => {
   $('html').on('submit', '#sign-up', onSignUp)
   $('html').on('click', '#guest', onGuest)
   $('html').on('click', '#guest2', onGuest2)
+  $('html').on('click', '#pwchange', getEmail)
   $('html').on('submit', '#change-password', onChangePassword)
   $('html').on('click', '#sign-out', onSignOut)
-  $('html').on('click', '#account', onAccountClick)
-  $('html').on('click', '#home', onHomeClick)
+  $('html').on('click', '.dropdown', clear)
 }
 
 module.exports = {
