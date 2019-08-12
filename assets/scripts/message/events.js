@@ -54,7 +54,6 @@ const onEditMessage = (event) => {
 
 const onGetMessageId = (event) => {
   event.preventDefault()
-  console.log($(event.target).data('id'))
   store.currentMessageId = $(event.target).data('id')
 }
 
