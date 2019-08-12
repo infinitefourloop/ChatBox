@@ -1,5 +1,16 @@
 {{#each messages as |message| }}
-<div data-id="{{message._id}}" class="row">
+<div class="media message-hover p-3" data-id="{{message._id}}">
+  <div class="user-box mr-2">{{limit message.owner.username 1}}</div>
+  <div class="media-body">
+    <h5 class="mt-0">{{message.owner.username}}</h5> <span class="hover-icons"><i class="fas fa-edit" data-target="#updateMessageModal" data-toggle="modal" data-id="{{message._id}}"></i><i class="far fa-times-circle delete-message" data-id="{{message._id}}"></i></span>
+    {{message.text}}
+  </div>
+</div>
+<hr>
+{{/each}}
+
+
+<!-- <div data-id="{{message._id}}" class="row">
   <div class="username col">{{message.owner.username}}</div>
   <div class="w-100"></div>
   <div class="col-2">
@@ -7,5 +18,4 @@
     <button class="col delete-message"><i class="far fa-times-circle" data-id="{{message._id}}"></i></button>
   </div>
   <div class="chatMessage col-8">{{message.text}}</div>
-</div>
-{{/each}}
+</div> -->
