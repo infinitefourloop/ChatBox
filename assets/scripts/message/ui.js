@@ -67,10 +67,9 @@ const updateMessageFailure = () => {
   $('form').trigger('reset')
 }
 
-const updateclear = () => {
+const updateClear = () => {
   $('#updateMessage').val('')
   const message = store.data.messages.find(data => data._id === store.currentMessageId)
-  console.log(message)
   $('#updateMessage').val(message.text)
 }
 
@@ -84,5 +83,5 @@ module.exports = {
   deleteMessageFailure,
   updateMessageSuccess,
   updateMessageFailure,
-  updateclear
+  updateClear
 }
