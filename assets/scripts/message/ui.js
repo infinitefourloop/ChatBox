@@ -7,12 +7,12 @@ const store = require('../store')
 const postMessage = function (message) {
   store.data.messages.push(message)
   const postMessageHtml = postMessageTemplate({ message: message })
-  $('#messages').append(postMessageHtml)
+  $('#messages').prepend(postMessageHtml)
 }
 
 const indexMessagesSuccess = (data) => {
   store.data = data
-  const showMessagesHtml = showMessagesTemplate({ messages: data.messages })
+  const showMessagesHtml = showMessagesTemplate({ messages: data.messages.reverse() })
   $('#messages').html(showMessagesHtml)
 }
 
