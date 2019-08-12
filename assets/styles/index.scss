@@ -1,8 +1,83 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'theme';
 
+hr {
+  height: 8px;
+  background-image: linear-gradient(90deg, #8CA6DB, #B993D6, transparent);
+  border: 0;
+  height: 1px;
+}
+
 .welcome-message {
   font-size: 2.5em;
   color: #28a745;
   font-weight: 700;
+}
+
+.chat {
+  border: 1px solid #D3D3D3;
+  margin-top: 25px;
+  padding: 25px;
+}
+
+.user-box {
+  height: 32px;
+  width: 32px;
+  background: #B993D6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  text-align: center;
+  font-size: 1.5em;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 5px;
+  vertical-align: middle;
+}
+
+
+.message-hover:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.hover-icons {
+  display: inline-block;
+  float: right;
+}
+
+.hover-icons:hover {
+  cursor: pointer;
+}
+
+.fa-edit {
+  background-color: #fff;
+  color: #D3D3D3;
+  padding: 8px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.fa-times-circle {
+  background-color: #fff;
+  color: #D3D3D3;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.fa-edit:hover {
+  background: #B993D6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  padding: 8px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.fa-times-circle:hover {
+  background: #B993D6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  padding: 8px;
+  border-radius: 5px;
 }
