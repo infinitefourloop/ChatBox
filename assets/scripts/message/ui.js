@@ -5,6 +5,7 @@ const postMessageTemplate = require('../templates/message-post.handlebars')
 const store = require('../store')
 
 const postMessage = function (message) {
+  store.data.messages.push(message)
   const postMessageHtml = postMessageTemplate({ message: message })
   $('#messages').append(postMessageHtml)
 }
@@ -57,6 +58,7 @@ const updateMessageFailure = () => {
 const updateclear = () => {
   $('#updateMessage').val('')
   const message = store.data.messages.find(data => data._id === store.currentMessageId)
+  console.log(message)
   $('#updateMessage').val(message.text)
 }
 
