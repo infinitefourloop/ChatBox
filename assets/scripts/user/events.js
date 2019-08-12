@@ -26,7 +26,7 @@ const onSignIn = event => {
   api.signIn(formData)
     .then(ui.signInSuccess)
     .then(function () {
-      socket = io.connect('localhost:4741')
+      socket = io.connect('https://young-springs-61213.herokuapp.com')
       socket.on('chat message', uiMessages.postMessage)
       socket.on('array message', uiMessages.indexMessagesSuccess)
     })

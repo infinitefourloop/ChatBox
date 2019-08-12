@@ -1,7 +1,7 @@
 'use strict'
 
 const io = require('socket.io-client')
-const socket = io.connect('localhost:4741')
+const socket = io.connect('https://young-springs-61213.herokuapp.com')
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
