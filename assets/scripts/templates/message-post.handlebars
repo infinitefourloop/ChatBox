@@ -1,7 +1,10 @@
 <div class="media message-hover p-3">
   <div class="user-box mr-2">{{limit message.owner.username 1}}</div>
   <div class="media-body">
-    <h5 class="mt-0">{{message.owner.username}}</h5> <span class="hover-icons"><i class="fas fa-edit update-message-icon" data-target="#updateMessageModal" data-toggle="modal" data-id="{{message._id}}"></i><i class="far fa-times-circle delete-message" data-id="{{message._id}}"></i></span>
+    <h5 class="mt-0">{{message.owner.username}}</h5>
+    {{#if (isOwner message.owner._id current_user_id)}}
+    <span class="hover-icons"><i class="fas fa-edit update-message-icon" data-target="#updateMessageModal" data-toggle="modal" data-id="{{message._id}}"></i><i class="far fa-times-circle delete-message" data-id="{{message._id}}"></i></span>
+    {{/if}}
     {{message.text}}
   </div>
 </div>

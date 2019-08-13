@@ -62,7 +62,7 @@ const addHandlers = () => {
   $('html').on('click', '.delete-message', onDeleteMessage)
   $('html').on('submit', '#update-message', onEditMessage)
   $('html').on('click', '.update-message-icon', onGetMessageId)
-  $('html').on('click', '.update-message', ui.updateclear)
+  $('html').on('click', '.update-message-icon', ui.updateClear)
 }
 
 module.exports = {
