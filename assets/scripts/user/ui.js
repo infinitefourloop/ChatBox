@@ -27,7 +27,7 @@ const signUpSuccess = responseData => {
   api.signIn(store.save)
     .then(signInSuccess)
     .then(function () {
-      socket = io.connect('localhost:4741')
+      socket = io.connect('https://young-springs-61213.herokuapp.com')
       socket.on('chat message', messagesUi.postMessage)
       socket.on('array message', messagesUi.indexMessagesSuccess)
     })
