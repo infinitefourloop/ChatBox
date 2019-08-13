@@ -44,16 +44,16 @@ const signInSuccess = (responseData) => {
   $('#sign-in').addClass('hide')
   $('.dropdown').removeClass('hide')
   $('.main').html(showChatRoom)
-  successMessage(`Get ready to chat your face off ${store.user.username}!`)
+  successMessage(`Welcome to ChatBox, ${store.user.username}!`)
 }
 
 const signInFailure = () => {
-  failureMessage('Wrong email or password')
+  failureMessage('Failed to sign in. Please try again.')
 }
 
 const changePasswordSuccess = (responseData) => {
   $('#staticEmail').val(store.user.email)
-  $('.password-message').text('Password changed successfully!')
+  $('.password-message').text('Password changed!')
   $('.password-message').removeClass('failure')
   $('.password-message').addClass('success')
   $('form').trigger('reset')

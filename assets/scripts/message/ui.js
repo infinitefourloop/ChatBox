@@ -23,7 +23,7 @@ const indexMessagesSuccess = (data) => {
 }
 
 const indexMessagesFailure = () => {
-  $('#userMessage').text('Unable to get all messages!')
+  $('#userMessage').text('Failed to load messages.')
   $('#userMessage').removeClass('success')
   $('#userMessage').addClass('failure')
 }
@@ -35,33 +35,33 @@ const createMessageSuccess = () => {
 }
 
 const createMessageFailure = () => {
-  $('#userMessage').text('Unable to create message!')
+  $('#userMessage').text('Failed to send a message')
   $('#userMessage').removeClass('success')
   $('#userMessage').addClass('failure')
 }
 
 const deleteMessageSuccess = () => {
-  $('#userMessage').text('Deleted message successfully!')
+  $('#userMessage').text('Message deleted!')
   $('#userMessage').removeClass('failure')
   $('#userMessage').addClass('success')
 }
 
 const deleteMessageFailure = () => {
-  $('#userMessage').text('Failed to delete message. Please try again')
+  $('#userMessage').text('Failed to delete message. Please try again.')
   $('#userMessage').removeClass('success')
   $('#userMessage').addClass('failure')
 }
 
 const updateMessageSuccess = () => {
   $('#updateMessageModal').modal('toggle')
-  $('#userMessage').text('Updated message successfully!')
+  $('#userMessage').text('Updated message!')
   $('#userMessage').removeClass('failure')
   $('#userMessage').addClass('success')
   $('form').trigger('reset')
 }
 
 const updateMessageFailure = () => {
-  $('.update-message-message').text('Failed to update message. Please try again!')
+  $('.update-message-message').text('Failed to update message. Please try again.')
   $('.update-message-message').removeClass('success')
   $('.update-message-message').addClass('failure')
   $('form').trigger('reset')
