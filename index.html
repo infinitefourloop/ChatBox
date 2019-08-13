@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatBox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Do not add `link` tags-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- Do not add `script` tags-->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+  <body>
+
+
+<!-- Change Password Modal -->
+    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="passwordModalLabel">Change Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="change-password">
+              <div class="form-group row justify-content-around">
+                <label for="staticEmail" class="col-sm-4 col-form-label">Email</label>
+                <input type="text" readonly class="form-control-plaintext col-sm-6" id="staticEmail">
+                <label for="oldPassword" class="col-sm-4 my-2 col-form-label">Old Password</label>
+                <input type="password" name="passwords[old]" class="form-control col-sm-6 my-2" id="oldPassword" placeholder="Old Password" required>
+                <label for="newPassword" class="col-sm-4 col-form-label">New Password</label>
+                <input type="password" name="passwords[new]" class="form-control col-sm-6" id="newPassword" placeholder="New Password" required>
+              </div>
+              <div class="modal-footer row align-items-center">
+                <div class="password-message col">&nbsp</div>
+                <div class="change-password-model col" align="right">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-gradient">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Update Message Modal -->
+    <div class="modal fade" id="updateMessageModal" tabindex="-1" role="dialog" aria-labelledby="updateMessageModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateMessageModalLabel">Update Message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="update-message">
+              <div class="form-group row justify-content-center">
+                <label for="updateMessage" class="col-5 my-2 col-form-label">Message</label>
+                <input type="text" name="message[text]" class="form-control col col-5 my-2" id="updateMessage">
+              </div>
+              <div class="modal-footer row align-items-center">
+                <div class="update-message-message col">&nbsp</div>
+                <div class="update-message-model col" align="right">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success updatebutton">Update</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Nav Bar -->
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+          <div class="col-4 logo">
+            ChatBox
+          </div>
+          <form class="col-6 signinForm" id="sign-in">
+            <div class="row align-items-center">
+              <label class="mx-1 px-1" for="exampleDropdownFormEmail">Email address</label>
+              <input class="form-control col px-6 mr-2" type="email" name="credentials[email]" required>
+              <label class="mx-1 px-1" for="exampleDropdownFormPassword">Password</label>
+              <input class="form-control col" type="password" name="credentials[password]" required>
+              <button class="btn btn-gradient mx-3 px-3">Sign in</button>
+            </div>
+          </form>
+
+
+  <!-- Nav Dropdown -->
+        <div class="dropdown col-1 hide">
+          <button class="btn btn-gradient dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
+            <button class="dropdown-item" id="pwchange" type="button" data-toggle="modal" data-target="#passwordModal">Change Password</button>
+            <button class="dropdown-item" id="sign-out">Sign Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- User Message -->
+  <div id="userMessage" class="mr-5">&nbsp</div>
+
+
+<!-- Main-body: changes with Handlebars -->
+    <div class="main">
+      <div class="py-3 row justify-content-center" style="width: 980px; margin:0 auto">
+
+        <!-- Front Page Left -->
+        <div class="front_page_left col-6 mr-5" style="width:565px">
+          <h2 class="left_h2">
+            Welcome to ChatBox!
+          </h2>
+          <img src="public/logo.jpg" class="center">
+        </div>
+        <div class="front_page col-4 ml-3" style="width: 399px">
+
+          <!-- Front Page Right -->
+          <h2>Sign Up</h2>
+            <h5>Let's get chatting!</h5>
+          <form class="signupForm" id="sign-up">
+            <input class="form-control mt-3" type="email" name="credentials[email]" placeholder="Email@example.com" required>
+            <input class="form-control mt-3" type="text" name="credentials[username]" placeholder="Username" required>
+            <input class="form-control my-3" type="password" name="credentials[password]" placeholder="New Password" required>
+            <input class="form-control mb-3" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+            <button class="btn btn-gradient px-5 mb-5">Sign up</button>
+          </form>
+          <!-- Guest for quick testing
+          <button id="guest" class="btn btn-primary px-5 my-2 guest">el@el</button>
+          <button id="guest2" class="btn btn-warning px-5 my-2 guest">be@be</button> -->
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://kit.fontawesome.com/a2bd9b1bcc.js"></script>
+  </body>
+</html>
